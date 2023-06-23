@@ -1,5 +1,8 @@
 package uk.tw.offboarding.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum Office {
     LONDON(1,"London", Country.UNITED_KINGDOM, Status.ACTIVE),
     SAN_FRANCISCO(2, "San Francisco", Country.UNITED_STATES, Status.ACTIVE),

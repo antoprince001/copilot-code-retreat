@@ -1,5 +1,8 @@
 package uk.tw.offboarding.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum ExitChecklistItem {
     DESK_KEYS(1, "Desk keys", ExitChecklistItemCategory.ADMIN, ExitChecklistItemType.COUNTRY, 4),
     FILE_CABINET_KEYS(2, "File cabinet keys", ExitChecklistItemCategory.ADMIN, ExitChecklistItemType.COUNTRY, 4),

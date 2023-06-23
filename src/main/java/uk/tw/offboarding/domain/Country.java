@@ -1,5 +1,11 @@
 package uk.tw.offboarding.domain;
 
+import lombok.Getter;
+
+import java.util.Arrays;
+import java.util.List;
+
+@Getter
 public enum Country {
     UNITED_KINGDOM(1,"United Kingdom", "GBR", Status.ACTIVE),
     UNITED_STATES(2, "United States", "USA", Status.ACTIVE),
@@ -20,5 +26,18 @@ public enum Country {
         this.name = name;
         this.iso3Code = iso3Code;
         this.status = status;
+    }
+
+    public List<ExitChecklistItem> getExitChecklist() {
+        // Find all ExitChecklistItems of ExitChecklistItemType COUNTRY
+        List<ExitChecklistItem> exitChecklistItems = Arrays.stream(ExitChecklistItem.values())
+                .filter(exitChecklistItem -> exitChecklistItem.getRegionType() == ExitChecklistItemType.COUNTRY)
+                .toList();
+
+        // Filter exitChecklistItems based on this country id
+        return exitChecklistItems.stream()
+                .filter(exitChecklistItem -> exitChecklistItem.getRegionID() == this.ID)
+                .toList();
+
     }
 }
